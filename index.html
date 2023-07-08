@@ -15,9 +15,9 @@
         margin: auto;">
         <div style="display: flex; margin-top: 20px;">
             
-            <a style="margin:auto; color: rgb(180, 181, 181); text-decoration: none;" href="https://goo.gl/maps/mBwthd5sWakkkR9x5" class="location-link">
-                <i class="fas fa-map-marker-alt"></i>
-        Location
+            <a style="margin:auto; color: rgb(180, 181, 181);  text-decoration: none;" href="https://goo.gl/maps/mBwthd5sWakkkR9x5" class="location-link">
+                <i class="fas fa-map-marker-alt"></i> Click here for Location
+
           </a>
         </div>
     </div>
@@ -29,7 +29,15 @@
   var fullscreenImg = document.getElementById('fullscreen-img');
   
   fullscreenImg.addEventListener('click', function() {
-    this.classList.toggle('fullscreen');
+    if (this.requestFullscreen) {
+    this.requestFullscreen();
+  } else if (this.mozRequestFullScreen) {
+    this.mozRequestFullScreen();
+  } else if (this.webkitRequestFullscreen) {
+    this.webkitRequestFullscreen();
+  } else if (this.msRequestFullscreen) {
+    this.msRequestFullscreen();
+  }
   });
 });
 </script>
